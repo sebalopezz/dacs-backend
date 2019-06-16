@@ -19,5 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::resource('/historiasclinicas', 'HistoriasClinicasController');
-Route::resource('/visita','VisitasController');
+Route::resource('/visitas','VisitasController');
 
