@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateHistoriasclinicasTable extends Migration
 {
+    protected $table = 'historias';
     /**
      * Run the migrations.
      *
@@ -13,7 +14,7 @@ class CreateHistoriasclinicasTable extends Migration
      */
     public function up()
     {
-        Schema::create('historia', function (Blueprint $table) {
+        Schema::create('historiasclinicas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idpaciente');
             $table->date('fechainicio');
