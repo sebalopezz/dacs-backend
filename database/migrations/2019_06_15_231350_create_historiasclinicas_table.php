@@ -13,7 +13,7 @@ class CreateHistoriasclinicasTable extends Migration
      */
     public function up()
     {
-        Schema::create('historiasclinicas', function (Blueprint $table) {
+        Schema::create('historia', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idpaciente');
             $table->date('fechainicio');
