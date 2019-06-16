@@ -6,7 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateHistoriasclinicasTable extends Migration
 {
-    protected $table = 'historias';
     /**
      * Run the migrations.
      *
