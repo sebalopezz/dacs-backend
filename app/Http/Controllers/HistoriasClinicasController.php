@@ -92,8 +92,9 @@ class HistoriasClinicasController extends Controller
      * @param  \App\HistoriaClinica  $historiaClinica
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HistoriaClinica $historiaClinica)
+    public function destroy($id)
     {
-        //
+        HistoriaClinica::find($id)->delete();
+        return redirect('/api/historiasclinicas');
     }
 }
