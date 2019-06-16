@@ -51,9 +51,9 @@ class HistoriasClinicasController extends Controller
      * @param  \App\HistoriaClinica  $historiaClinica
      * @return \Illuminate\Http\Response
      */
-    public function show(HistoriaClinica $historiaClinica)
+    public function show($id)
     {
-        $historia = DB::table('historiasclinicas')->where('id', $historiaClinica)->first();
+        $historia = HistoriaClinica::find($id);
         return $historia;
     }
 
