@@ -75,9 +75,15 @@ class HistoriasClinicasController extends Controller
      * @param  \App\HistoriaClinica  $historiaClinica
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HistoriaClinica $historiaClinica)
+    public function update($id)
     {
-        //
+        $historia = HistoriaClinica::find($id);
+        $historia->idpaciente = request('idpaciente');
+        $historia->fechainicio = request('fechainicio');
+        $historia->gruposanguineo = request('gruposanguineo');
+        $historia->observaciones = request('observaciones');
+        $historia->save();
+        return redirect('/api/historiasclinicas');
     }
 
     /**
