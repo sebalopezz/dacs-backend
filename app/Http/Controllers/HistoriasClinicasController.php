@@ -53,7 +53,8 @@ class HistoriasClinicasController extends Controller
      */
     public function show(HistoriaClinica $historiaClinica)
     {
-        //
+        $historia = DB::table('historiasclinicas')->where('id', $historiaClinica)->first();
+        return $historia;
     }
 
     /**
