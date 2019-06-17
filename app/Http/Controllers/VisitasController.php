@@ -43,6 +43,7 @@ class VisitasController extends Controller
         $visita->idreceta = request('idreceta');
         $visita->idmedico = request('idmedico');
         $visita->idpartida = request('idpartida');
+        $visita->idhistoriaclinica = request('idhistoriaclinica');
         $visita->save();
         return redirect('/api/visitas');
     }

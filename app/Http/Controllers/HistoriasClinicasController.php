@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\HistoriaClinica;
+use App\Visita;
 use Illuminate\Http\Request;
 
 class HistoriasClinicasController extends Controller
@@ -15,6 +16,9 @@ class HistoriasClinicasController extends Controller
     public function index()
     {
         $historiasclinicas = HistoriaClinica::all();
+        foreach($historiasclinicas as $historia){
+            $historia->visitas = Visita::where('idhistoriaclinica',$historia->id)->get();
+        }
         return $historiasclinicas;
     }
 
