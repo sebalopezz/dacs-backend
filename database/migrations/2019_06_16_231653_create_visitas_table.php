@@ -21,6 +21,7 @@ class CreateVisitasTable extends Migration
             $table->integer('idreceta');
             $table->integer('idmedico');
             $table->integer('idpartida');
+            $table->integer('idhistoriaclinica');
             $table->timestamps();
         });
     }
