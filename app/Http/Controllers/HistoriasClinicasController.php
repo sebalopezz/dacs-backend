@@ -55,10 +55,14 @@ class HistoriasClinicasController extends Controller
      * @param  \App\HistoriaClinica  $historiaClinica
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idpaciente)
     {
-        $historia = HistoriaClinica::find($id);
-        return $historia;
+        $historias = HistoriaClinica::where('idpaciente',$idpaciente)->get();
+        // Solo es una historia pero necesito acceder, uso la misma forma q index
+        foreach($historias as $historia){
+            $historia->visitas = Visita::where('idhistoriaclinica',$historia->id)->get();
+        }
+        return $historias;
     }
 
     /**
