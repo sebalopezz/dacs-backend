@@ -16,12 +16,11 @@ class CreateVisitasTable extends Migration
         Schema::create('visitas', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha');
-            $table->string('sintomas', 100);
-            $table->string('diagnostico', 100);
-            $table->integer('idreceta');
-            $table->integer('idmedico');
-            $table->integer('idpartida');
-            $table->integer('idhistoriaclinica');
+            $table->string('Sintomas', 100);
+            $table->string('Diagnostico', 100);
+            $table->integer('MedicoId');
+            $table->integer('HistoriaClinicaId');
+            $table->integer('PartidaMedicamentoId');
             $table->timestamps();
         });
     }

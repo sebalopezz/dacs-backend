@@ -15,9 +15,9 @@ class CreateHistoriasclinicasTable extends Migration
     {
         Schema::create('historiasclinicas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idpaciente');
-            $table->date('fechainicio');
-            $table->string('gruposanguineo',5);
+            $table->integer('pacienteId');
+            $table->dateTime('fechaInicio');
+            $table->string('grupoSanguineo',5);
             $table->string('observaciones',200);
             $table->timestamps();
         });

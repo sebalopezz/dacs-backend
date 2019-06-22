@@ -38,12 +38,11 @@ class VisitasController extends Controller
     {
         $visita = new Visita();
         $visita->fecha = request('fecha');
-        $visita->sintomas = request('sintomas');
-        $visita->diagnostico = request('diagnostico');
-        $visita->idreceta = request('idreceta');
-        $visita->idmedico = request('idmedico');
-        $visita->idpartida = request('idpartida');
-        $visita->idhistoriaclinica = request('idhistoriaclinica');
+        $visita->Sintomas = request('Sintomas');
+        $visita->Diagnostico = request('Diagnostico');
+        $visita->MedicoId = request('MedicoId');
+        $visita->HistoriaClinicaId = request('HistoriaClinicaId');
+        $visita->PartidaMedicamentoId = request('PartidaMedicamentoId');
         $visita->save();
         return redirect('/api/visitas');
     }
@@ -82,11 +81,11 @@ class VisitasController extends Controller
     {
         $visita = Visita::find($id);
         $visita->fecha = request('fecha');
-        $visita->sintomas = request('sintomas');
-        $visita->diagnostico = request('diagnostico');
-        $visita->idreceta = request('idreceta');
-        $visita->idmedico = request('idmedico');
-        $visita->idpartida = request('idpartida');
+        $visita->Sintomas = request('Sintomas');
+        $visita->Diagnostico = request('Diagnostico');
+        $visita->MedicoId = request('MedicoId');
+        $visita->HistoriaClinicaId = request('HistoriaClinicaId');
+        $visita->PartidaMedicamentoId = request('PartidaMedicamentoId');
         $visita->save();
         return redirect('/api/visitas');
     }

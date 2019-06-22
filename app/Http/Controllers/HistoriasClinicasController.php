@@ -40,12 +40,12 @@ class HistoriasClinicasController extends Controller
      */
     public function store(Request $request)
     {
-        $historiaclinica = new HistoriaClinica();
-        $historiaclinica->idpaciente = request('idpaciente');
-        $historiaclinica->fechainicio = request('fechainicio');
-        $historiaclinica->gruposanguineo = request('gruposanguineo');
-        $historiaclinica->observaciones = request('observaciones');
-        $historiaclinica->save();
+        $historia = new HistoriaClinica();
+        $historia->pacienteId = request('pacienteId');
+        $historia->fechaInicio = request('fechaInicio');
+        $historia->grupoSanguineo = request('grupoSanguineo');
+        $historia->observaciones = request('observaciones');
+        $historia->save();
         return redirect('/api/historiasclinicas');
     }
 
@@ -56,17 +56,12 @@ class HistoriasClinicasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($idpaciente)
-    {   /*
-        $historias = HistoriaClinica::where('idpaciente',$idpaciente)->get();
-        // Solo es una historia pero necesito acceder, uso la misma forma q index
-        foreach($historias as $historia){
-            $historia->visitas = Visita::where('idhistoriaclinica',$historia->id)->get();
+    {  
+        $historia = HistoriaClinica::where('pacienteId',$idpaciente)->first();
+        if (!$historia){
+            return $historia;
         }
-        return $historias;
-        */
-        $historia = HistoriaClinica::where('idpaciente',$idpaciente)->first();
-        // Solo es una historia pero necesito acceder, uso la misma forma q index
-        $historia->visitas = Visita::where('idhistoriaclinica',$historia->id)->get();
+        $historia->visitas = Visita::where('HistoriaClinicaId',$historia->id)->get();
         return $historia;
     }
 
@@ -91,9 +86,9 @@ class HistoriasClinicasController extends Controller
     public function update($id)
     {
         $historia = HistoriaClinica::find($id);
-        $historia->idpaciente = request('idpaciente');
-        $historia->fechainicio = request('fechainicio');
-        $historia->gruposanguineo = request('gruposanguineo');
+        $historia->pacienteId = request('pacienteId');
+        $historia->fechaInicio = request('fechaInicio');
+        $historia->grupoSanguineo = request('grupoSanguineo');
         $historia->observaciones = request('observaciones');
         $historia->save();
         return redirect('/api/historiasclinicas');
