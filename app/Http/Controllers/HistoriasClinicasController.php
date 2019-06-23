@@ -17,7 +17,7 @@ class HistoriasClinicasController extends Controller
     {
         $historiasclinicas = HistoriaClinica::all();
         foreach($historiasclinicas as $historia){
-            $historia->visitas = Visita::where('idhistoriaclinica',$historia->id)->get();
+            $historia->visitas = Visita::where('HistoriaClinicaId',$historia->id)->get();
         }
         return $historiasclinicas;
     }
